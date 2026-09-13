@@ -1,0 +1,52 @@
+/* Estilos de accesibilidad WCAG AA — se aplican a todos los componentes */
+
+/* Foco visible para navegación por teclado */
+*:focus-visible {
+    outline: 2px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+}
+
+/* Eliminar foco visible solo con ratón (no teclado) */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ratio de contraste mínimo AA garantizado por los colores de variables.css */
+
+/* Tamaño mínimo de área táctil para elementos interactivos (44x44px WCAG 2.5.5) */
+button,
+[role="button"],
+input,
+select,
+textarea {
+    min-height: 44px;
+}
+
+/* Texto de error siempre visible para lectores de pantalla */
+[role="alert"] {
+    position: relative;
+}
+
+/* Ocultar visualmente pero mantener accesible para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Reducir movimiento para usuarios con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
